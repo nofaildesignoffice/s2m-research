@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>선데이투먼데이 다이아몬드 스피큘 — 통합 리서치 리포트</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --ink:#1a1f2b; --muted:#5b6472; --line:#e6e9ef; --bg:#eef1f5;
+    --accent:#0f6e8c; --accent2:#0a4a5e; --warn:#c0392b; --warnbg:#fdecea;
+    --ok:#1e8449; --okbg:#eafaf1; --chip:#eef4f7;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+    margin:0; background:var(--bg); color:var(--ink);
+    font-size:16px; line-height:1.72; letter-spacing:-.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px; margin:0 auto; padding:40px 20px 80px;}
+  header.hero{
+    background:#fff; border:1px solid var(--line); border-radius:18px;
+    padding:44px 40px; margin-bottom:22px; box-shadow:0 1px 3px rgba(20,30,50,.04);
+  }
+  .kicker{color:var(--accent); font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase;}
+  h1{font-size:30px; line-height:1.3; margin:10px 0 14px; font-weight:800; letter-spacing:-.02em;}
+  .meta{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px;}
+  .tag{background:var(--chip); color:var(--accent2); font-size:12.5px; font-weight:600; padding:5px 11px; border-radius:999px;}
+  .lead{font-size:16.5px; color:var(--muted); margin-top:18px;}
+
+  nav.toc{
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+    padding:18px 24px; margin-bottom:22px;
+  }
+  nav.toc b{font-size:12.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.05em;}
+  nav.toc ol{margin:10px 0 0; padding-left:20px; columns:2; column-gap:30px;}
+  nav.toc li{margin:3px 0;}
+  nav.toc a{color:var(--ink); text-decoration:none; font-weight:600; font-size:14.5px;}
+  nav.toc a:hover{color:var(--accent);}
+
+  section{
+    background:#fff; border:1px solid var(--line); border-radius:16px;
+    padding:34px 40px; margin-bottom:20px; box-shadow:0 1px 2px rgba(20,30,50,.03);
+  }
+  section > h2{
+    font-size:22px; font-weight:800; margin:0 0 4px; letter-spacing:-.02em;
+    display:flex; align-items:baseline; gap:12px;
+  }
+  section > h2 .num{
+    color:#fff; background:var(--accent); font-size:14px; font-weight:800;
+    width:30px; height:30px; min-width:30px; border-radius:9px;
+    display:inline-flex; align-items:center; justify-content:center; align-self:center;
+  }
+  .sub{color:var(--muted); font-size:13.5px; margin:2px 0 20px 42px;}
+  h3{font-size:16.5px; font-weight:800; margin:24px 0 8px; color:var(--accent2);}
+  h4{font-size:14.5px; font-weight:700; margin:16px 0 6px;}
+  p{margin:8px 0;}
+  ul{margin:8px 0; padding-left:22px;} li{margin:5px 0;}
+  strong{font-weight:700;}
+  a.src{color:var(--accent); text-decoration:none; font-weight:600; border-bottom:1px dotted var(--accent);}
+
+  .verdict{
+    border-left:4px solid var(--accent); background:#f5fafc;
+    padding:16px 20px; border-radius:0 10px 10px 0; margin:16px 0; font-size:16px;
+  }
+  .verdict.big{font-size:17.5px; font-weight:600;}
+  .callout-warn{border-left:4px solid var(--warn); background:var(--warnbg); padding:14px 18px; border-radius:0 10px 10px 0; margin:14px 0;}
+  .callout-ok{border-left:4px solid var(--ok); background:var(--okbg); padding:14px 18px; border-radius:0 10px 10px 0; margin:14px 0;}
+
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:13.8px;}
+  th,td{border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top;}
+  th{background:#f7f9fb; font-weight:700; color:var(--accent2);}
+  td.warn{color:var(--warn); font-weight:600;}
+  td.ok{color:var(--ok); font-weight:600;}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0;}
+  .card{border:1px solid var(--line); border-radius:12px; padding:16px 18px; background:#fdfefe;}
+  .card h4{margin-top:0; color:var(--accent2);}
+  .steal{border-left:3px solid var(--ok);}
+  .drop{border-left:3px solid var(--warn);}
+
+  .decision{border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin:12px 0; background:#fbfdfe;}
+  .decision .q{font-weight:800; color:var(--accent2); font-size:15.5px;}
+
+  .steps{counter-reset:s; list-style:none; padding:0; margin:14px 0;}
+  .steps li{counter-increment:s; position:relative; padding:10px 0 10px 46px; border-bottom:1px dashed var(--line);}
+  .steps li::before{content:counter(s); position:absolute; left:0; top:9px; width:30px; height:30px; background:var(--accent2); color:#fff; border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px;}
+  .steps li:last-child{border-bottom:none;}
+
+  footer{text-align:center; color:var(--muted); font-size:13px; padding:24px 0 0;}
+  .eng{display:inline-block; background:var(--chip); padding:2px 9px; border-radius:6px; font-size:12.5px; font-weight:700; color:var(--accent2);}
+  @media(max-width:680px){ .grid2{grid-template-columns:1fr;} nav.toc ol{columns:1;} section,header.hero{padding:24px 22px;} h1{font-size:24px;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Nofail Design · 상세페이지 리서치</div>
+  <h1>선데이투먼데이 다이아몬드 스피큘 5,000샷<br>통합 리서치 리포트</h1>
+  <div class="lead">시장 · 경쟁사 · 타겟 · 과학규제 4축 조사 + 교차검증. 3개 AI(Codex·Claude·Gemini) 병렬 조사로 삼각검증. 모든 사실은 출처 앵커, 미검증분은 명시.</div>
+  <div class="meta">
+    <span class="tag">국내 우선 · 유럽(투아드자드) 참고</span>
+    <span class="tag">타겟: 오션액티브컨슈머</span>
+    <span class="tag">조사일 2026-08-21</span>
+    <span class="tag">브리핑 2026-08-24</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <b>목차</b>
+  <ol>
+    <li><a href="#s0">한 줄 결론</a></li>
+    <li><a href="#s1">축 A · 시장조사</a></li>
+    <li><a href="#s2">축 B · 경쟁사조사</a></li>
+    <li><a href="#s3">축 C · 타겟조사</a></li>
+    <li><a href="#s4">축 D · 과학·규제</a></li>
+    <li><a href="#s5">교차검증 (레드팀)</a></li>
+    <li><a href="#s6">상세페이지 기획 함의</a></li>
+    <li><a href="#s7">전략 결정 · 데이터 공백</a></li>
+  </ol>
+</nav>
+
+<!-- 0 -->
+<section id="s0">
+  <h2><span class="num">0</span>한 줄 결론</h2>
+  <div class="verdict big">
+    오션니치 올인은 <strong>“매출 타겟”이 아니라 “신뢰앵커 · 성분내러티브 · 진입문”</strong>으로만 유효하다.
+    상세페이지는 오션인을 hero로 세우되, 전환은 일반 구매자의 <strong>피부상태 자기선택</strong>으로 받아야 손익이 맞는다.
+  </div>
+  <p>“내수 오션니치가 유효한 시장인가?”라는 핵심 질문에 데이터는 <strong>‘제한적 유효’</strong>로 답했다. 오션 정체성은 브랜드의 심장으로 두되, 세일즈 엔진은 일반 구매자를 끌어들이는 구조여야 한다.</p>
+  <table>
+    <tr><th>축</th><th>핵심 발견</th><th>판정</th></tr>
+    <tr><td><strong>A 시장</strong></td><td>스피큘 부스터 카테고리 검증(VT 리들샷 330만개·매출 +1,069%). 순수 오션니치 얼굴화장품 지출 데이터 없음</td><td class="warn">제한적 유효</td></tr>
+    <tr><td><strong>B 경쟁</strong></td><td>시장은 다이아몬드가 아닌 샷수·흡수율·성분으로 경쟁. 국내 “오션 페이셜 부스터”는 공백</td><td class="ok">포지셔닝 공백 존재</td></tr>
+    <tr><td><strong>C 타겟</strong></td><td>볼륨은 서퍼(120만)뿐. 나머지는 앵커·확산노드. 침투 = 강사·딥탱크→커뮤니티→대중</td><td class="warn">니치=진입문</td></tr>
+    <tr><td><strong>D 과학·규제</strong></td><td>임상수치·전달표현 대부분 완제품 성적서 없으면 사용 불가</td><td class="warn">카피 대수술 필요</td></tr>
+    <tr><td><strong>레드팀</strong></td><td>“오션 앰플인데 정작 바다 갈 땐 못 바르는 고자극 앰플” 형용모순 + 부작용→커뮤니티 퇴출 리스크</td><td class="warn">실패경로 식별</td></tr>
+  </table>
+</section>
+
+<!-- 1 A -->
+<section id="s1">
+  <h2><span class="num">A</span>시장조사</h2>
+  <div class="sub"><span class="eng">Codex</span> 웹조사 · 정부통계·기업IR 우선</div>
+
+  <h3>카테고리는 이미 검증됐다</h3>
+  <ul>
+    <li>VT 리들샷: 2023.3 출시~2024.4 약 <strong>330만 개</strong> 판매. VT 2024 1Q 국내 화장품 매출 <strong>214억(+1,069% YoY)</strong>, 리들샷 비중 최대 56%, 영업이익률 33%까지 상승. <a class="src" href="https://www.hanaw.com/download/research/FileServer/WEB/industry/enterprise/2024/05/14/VT_240514.pdf">하나증권</a> · <a class="src" href="https://www.yakup.com/news/index.html?mode=view&nid=296836">약업</a></li>
+    <li>메디큐브(APR) 2024 4Q 화장품 매출 969억(+141%). <a class="src" href="https://apr-in.com/download/APR_IR_BooK_%28KOR%29_update_FY2024.pdf">APR IR</a></li>
+    <li>→ “바르는 미세자극 흡수 부스터” 수요 자체는 검증됨. (스피큘 시장 전체 공인통계는 없음)</li>
+  </ul>
+
+  <h3>오션 인구 — 관광객 ≠ 구매고객</h3>
+  <ul>
+    <li>수영 참여율 5.6%(여 7.6%) → <strong>[추정] 최근 수영 참여 ~250만.</strong> 서핑 ~120만(원조사 미공개=보조지표). 해양레저 접점 1,100만(중복·관광 포함).</li>
+    <li>프리다이버·스쿠버 고유인구·자격발급 <strong>신뢰통계 없음</strong>. 지출 중심은 샴푸·바디워시·염소제거(SOOO 스윔세트 리뷰 ~4,564) — <strong>고가 얼굴 앰플로 자동연결 근거 없음.</strong></li>
+  </ul>
+
+  <div class="callout-warn">
+    <strong>⚠️ 카피 교정 (과학):</strong> “염분이 피부장벽을 파괴한다”는 <strong>단정은 위험</strong> — 해수·NaCl이 오히려 자극성피부염 모델의 TEWL을 억제한 실험이 존재하고, 해변 자외선은 반사광보다 직접광이 주 위험. → 카피는 <strong>“물·자외선·반복세정 후 거칠고 당기는 컨디션”</strong>으로. <a class="src" href="https://pubmed.ncbi.nlm.nih.gov/11301639/">PubMed</a></div>
+
+  <h3>유럽(참고선)</h3>
+  <p>지속가능성·추적성·과학검증·장벽진정이 트렌드(CBI). “해양유래”만으론 차별화 약함. 프랑스 리비에라 코스탈 웰니스·탈라소 문화는 투아드자드 컨셉과 정합. <strong>단, EU 그린클레임 규제 강화 — “오션프렌들리·리프세이프”를 기준·시험 없이 효능처럼 쓰면 위험.</strong> <a class="src" href="https://www.consilium.europa.eu/en/policies/green-claims-empowering-consumers-for-more-sustainable-choices/">EU</a></p>
+
+  <div class="verdict"><strong>A 판정 — 제한적 유효.</strong> 순수 오션니치만으론 단일 상세페이지 매출 불충분. 앵커+자기선택 구조에서만 지지.</div>
+</section>
+
+<!-- 2 B -->
+<section id="s2">
+  <h2><span class="num">B</span>경쟁사조사</h2>
+  <div class="sub"><span class="eng">Codex</span> 웹조사 · 매트릭스 + 갭 분석</div>
+
+  <h3>스피큘 직접 경쟁</h3>
+  <table>
+    <tr><th>브랜드</th><th>소구</th><th>가격·용량</th><th>판매 신호</th></tr>
+    <tr><td>VT CICA 리들샷 100</td><td>“피부 길 여는 데일리 부스터” · 강도 50~700</td><td>50ml · ~£25/$20대</td><td>리뷰 1,041 · 올영·다이소 대량입점</td></tr>
+    <tr><td>메디큐브 제로 엑소좀샷 2000</td><td>“고함량 엑소좀 7일 모공케어” · 2000~25000</td><td>30ml · ~19,580~22,000</td><td>화해 4.32 · 모공앰플 22위</td></tr>
+    <tr><td>셀리맥스 레티날샷</td><td>“흡수깊이 892% 탄력부스터”</td><td>15ml · 28,500</td><td>리뷰 413 · 북미 아마존 1위</td></tr>
+    <tr><td>토소웅 · SKIN1004 · APLB 등</td><td>샷수·가성비·히어로성분(레티놀·PDRN·비타민C) 결합</td><td>상이</td><td>국내 공식근거 부족 [추정]</td></tr>
+  </table>
+  <div class="callout-warn"><strong>공통 공식 = ① 샷수·강도 ② 전달·흡수율 ③ 히어로성분 결합 ④ 결과부위(모공·결·탄력).</strong> 사용자의 생활환경은 거의 안 나온다. “다이아몬드”는 시장 표준언어가 아님 → <strong>우리 다이아몬드 소구는 차별점이 약하다.</strong></div>
+
+  <h3>인접 경쟁 & 갭</h3>
+  <ul>
+    <li><strong>SOOO SWIM</strong>: 상품명에 문제선점(“염소·염분”), 리뷰 세트 4,687·샴푸 2,818 → <strong>좁은 수영인 언어가 국내에서 팔린다는 강력 증거.</strong></li>
+    <li>글로벌 서퍼 애프터케어 <strong>이미 존재</strong>: NAMIHADA · Soke(“fried face”) · Albedo · AfterWave · Surf Soap.</li>
+  </ul>
+  <table>
+    <tr><th>시장층</th><th>판정</th></tr>
+    <tr><td>스피큘 부스터</td><td class="warn">생활 정체성 공백 큼 (전부 스펙경쟁, 생활인 부재)</td></tr>
+    <tr><td>글로벌 워터스포츠 애프터케어</td><td>이미 경쟁 존재</td></tr>
+    <tr><td><strong>국내 페이셜 오션액티브 부스터</strong></td><td class="ok">공백 = 선데이투먼데이 자리</td></tr>
+  </table>
+  <div class="verdict">포지셔닝 공백 = <strong>“바다를 포기하지 않는 사람의 피부를 위한, 주1회 다음 스킨케어 효율을 끌어올리는 집중 부스터.”</strong> 공백을 만드는 건 원료가 아니라 <strong>사용자 정체성 × 노출상황 × 주간 회복리듬의 결합.</strong></div>
+
+  <h3>훔칠 것 / 버릴 것</h3>
+  <div class="grid2">
+    <div class="card steal"><h4>✓ 훔칠 것</h4>
+      <ul>
+        <li><strong>SOOO</strong> — 상품명이 타겟·문제 동시선언, 커뮤니티 리뷰=신뢰근거, 체험분으로 진입장벽↓</li>
+        <li><strong>VT</strong> — 강도·주기 즉시이해, “부스터” 역할교육, 따끔함 정직 안내</li>
+        <li><strong>메디큐브</strong> — 첫화면 단일고민, 임상을 부위·기간·사용법과 연결</li>
+        <li><strong>NAMIHADA·Soke</strong> — 감각카피(“당기고 달아오른”), Surf→Rinse→Recover 프로토콜</li>
+        <li><strong>OSEA·ishga</strong> — 해양보호를 문구 아닌 원료 산지·채취로 증명</li>
+      </ul></div>
+    <div class="card drop"><h4>✗ 버릴 것</h4>
+      <ul>
+        <li>5,000샷·49성분·32배를 한 화면에 나열</li>
+        <li>다이아몬드 장식 반복 · “기적·혁명” 상투어</li>
+        <li>샷수 우월 비교(브랜드마다 정의 다름)</li>
+        <li>MoCRA를 FDA 승인처럼 · 44개국 실적을 국내 실적처럼</li>
+        <li><strong>손상 직후 피부에 스피큘 사용 암시</strong></li>
+        <li>해양보호를 첫 화면 주인공으로</li>
+      </ul></div>
+  </div>
+</section>
+
+<!-- 3 C -->
+<section id="s3">
+  <h2><span class="num">C</span>타겟조사</h2>
+  <div class="sub"><span class="eng">Claude</span> 웹조사 · 세그먼트 · JTBD · 커뮤니티</div>
+
+  <h3>세그먼트 — 볼륨 vs 앵커 구분</h3>
+  <table>
+    <tr><th>역할</th><th>세그먼트</th><th>비고</th></tr>
+    <tr><td class="ok">매출 볼륨</td><td>서퍼(120만, 뷰티친화·광노화 실고민)</td><td>단 뷰티지출 서퍼는 일부(추정 수만)</td></tr>
+    <tr><td>신뢰앵커·확산노드</td><td>프리다이버(딥탱크 코어)·해양스포츠 강사</td><td>판매 아닌 확산(sooo 침투경로)</td></tr>
+    <tr><td>상징·보증</td><td>구조대·해양생물학자·항해사(등록 37,718척)</td><td>“가장 혹독한 환경 전문가가 쓴다” 상징</td></tr>
+  </table>
+
+  <h3>JTBD · 피부고민</h3>
+  <p>염분(삼투 건조)·자외선(광노화·색소)·염소(유분막 파괴)·해풍(광노화 가속). 골든타임 = 세척 후 3분 수분잠금. <strong>미충족 = 대부분 “선크림+진정”까지, 근본회복 부스터 부재.</strong> 원하는 속성: 휴대성·빠른진정·<strong>남녀공용 무향</strong>·워터프루프·<strong>비건친환경</strong>(이 씬 명시적 구매기준).</p>
+
+  <div class="callout-warn"><strong>⚠️ 부스터 맥락 = 조건부 YES.</strong> 손상된 장벽에 스피큘 재자극은 역풍 가능 → “손상 위 자극”이 아니라 <strong>“주1회 회복기 부스팅”</strong>. 현장 직후(진정: 미스트) ≠ 스피큘(집·회복일 리부스트) <strong>시점 분리</strong> 필수. 주1회 = “주말세션 후 주중회복 루틴”.</div>
+
+  <h3>커뮤니티 언어 (카피 톤)</h3>
+  <p><strong>버디문화(2인1조 상호케어·유대)</strong>. 확산: 딥탱크·통합커뮤니티(AQUA.S.S.O.K), 강사·풀 = 신뢰노드. 카피 표현군: <em>“서로를 지킨다 · 바다가 준 손상은 바다에서 온 것으로 · 한 번의 호흡, 한 샷 · 세션 후 회복 의식 · 바다를 사랑하니 지키는 성분.”</em></p>
+
+  <div class="verdict"><strong>C 판정.</strong> 오션니치 = 진입문·앵커, 시장 전체 아님. 매출은 오션인이 검증한 스토리를 일반 구매자(수영·야외·안티에이징)에게 파는 구조. 침투 = <strong>sooo 모델(강사 앰버서더 → 커뮤니티 → 쿠팡·네이버 대중).</strong></div>
+</section>
+
+<!-- 4 D -->
+<section id="s4">
+  <h2><span class="num">D</span>과학 · 규제 팩트체크</h2>
+  <div class="sub"><span class="eng">Codex</span> 웹조사 · ★ 상세페이지 필수 준수</div>
+
+  <h3>클레임 검증</h3>
+  <ul>
+    <li>스피큘 경피전달 <strong>기전은 논문 존재</strong>(해면 스피큘+리포좀, 돼지피부 미세통로). 단 <strong>동물·타물질·병용기술 결과 — 본 제품 성능 아님.</strong> <a class="src" href="https://pubmed.ncbi.nlm.nih.gov/30821312/">PubMed</a></li>
+    <li>인용수치 <strong>23.2% / 2.26배 / 33배</strong> = 타 연구·타 물질 값 → 본 제품에 전용하면 위험.</li>
+    <li><strong>이마-49% · 콜라겐+290% · 32배 · 22명4주 = 뒷받침 공개 성적서 못 찾음.</strong> 특허 임상은 눈가주름 13.8%(20명)로 불일치. <strong>완제품 성적서 없으면 사용 불가.</strong></li>
+    <li>다이아몬드 3중코팅 = 관련특허 존재하나 특허 ≠ 검증. 25ppm 광채·각질정돈 독립근거 부족.</li>
+  </ul>
+
+  <h3>규제 최우선 삭제 · 대체 (화장품법 13·14조)</h3>
+  <table>
+    <tr><th>위험 문구 (삭제)</th><th>안전 대체</th></tr>
+    <tr><td class="warn">미세천공 · 천연 마이크로니들</td><td>묵은 각질을 부드럽게 정돈 / 해면 유래 미세 스피큘</td></tr>
+    <tr><td class="warn">표피 너머 진피전달 · 경피전달 시스템</td><td>유효성분이 잘 전달되도록 도움 / 스킨케어 부스터</td></tr>
+    <tr><td class="warn">피부장벽을 뚫는다 · 상처내 재생</td><td>피부결 정돈 / 각질정돈·컨디셔닝</td></tr>
+    <tr><td class="warn">콜라겐 진피 충전 · 세포재생·복구</td><td>콜라겐 함유·보습 도움 / 생기 표현</td></tr>
+    <tr><td class="warn">염분·염소·UV 손상 <u>치료</u> · 항염</td><td>바다·수영 후 건조피부 <u>보습관리</u> / 민감피부 <u>진정 도움</u></td></tr>
+    <tr><td class="warn">MoCRA = FDA 승인·인증</td><td>“MoCRA 제조시설 등록/제품 리스팅” + “FDA 승인·효능인증 아님” 병기</td></tr>
+  </table>
+  <p style="font-size:14px;color:var(--muted)">기능성(미백=나이아신아마이드·주름=아데노신)은 <strong>완제품 기능성 심사·보고 확인 시에만</strong> “도움을 줍니다”. 스피큘·다이아몬드를 주름 기능성 주성분처럼 쓰면 안 됨.</p>
+
+  <div class="callout-ok"><strong>출시 전 필수 증빙 (대표 요청 리스트):</strong> 완제품 기능성 보고서 · 22명4주 전체 성적서+통계 · −49%/+290%/32배 각 원자료·계산식 · 시험제품=판매제품 동일 확인서 · 25ppm 함량근거 · 3중코팅 SEM/TEM·공정서 · MoCRA 등록증빙 · 스피큘 자극·안자극 시험.</div>
+</section>
+
+<!-- 5 redteam -->
+<section id="s5">
+  <h2><span class="num">✕</span>교차검증 — 레드팀</h2>
+  <div class="sub"><span class="eng">Gemini</span> 웹 없이 논리 공격 · 4축이 못 본 결함</div>
+
+  <h3>축간 모순</h3>
+  <ol>
+    <li><strong>형용모순(치명):</strong> 오션 라이프스타일 앰플인데 정작 <strong>“바다 갈 땐 바르면 안 되는(고자극) 오션 앰플”</strong> — 타겟의 가장 고통스러운 순간(바다 직후)에 못 쓴다.</li>
+    <li><strong>SOOO 모델 오인:</strong> SOOO = 고빈도·저자극 데일리, 우리 = 저빈도·고자극 주1회 → 구매주기·사용맥락 완전 다름. 침투모델 단순 복제는 무리.</li>
+    <li><strong>다이아몬드 부조화:</strong> 소구 약하다 자백했으면서 제품명·컨셉 유지 → 대체 히어로 소구 필요.</li>
+    <li><strong>규제 무기박탈:</strong> 경피전달·32배 못 쓰는데 VT 부스터 공식 어떻게 따라가나 → 대안 필요.</li>
+  </ol>
+
+  <h3>가장 약한 가정</h3>
+  <ul>
+    <li><strong>“오션인 = 대중의 뷰티 워너비 앵커”</strong> — 대중은 서퍼·구조대 피부를 “그을리고 거친 피부”로 인식할 수 있음. <strong>진정·장벽 기능성 앵커로는 유효, 안티에이징 앵커로는 비약.</strong></li>
+    <li><strong>“오션 니치 자체 스피큘 수요 존재”</strong> — 데이터 없음. 서퍼도 선크림·워터프루프에 쓰지 주1회 고가앰플 지갑 근거 없음.</li>
+  </ul>
+
+  <h3>놓친 관점 (기획 필수 반영)</h3>
+  <div class="grid2">
+    <div class="card"><h4>🌡 계절성</h4>해양활동 여름 편중 → 가을·겨울 비수기 방어장치(실내수영·안티에이징 브릿지) 필요.</div>
+    <div class="card"><h4>⚥ 성비</h4>오션인 상당수 남성·뷰티 저관여 → 남녀공용·무향 설계 or 여성타겟 정교화.</div>
+    <div class="card"><h4>💰 가격저항</h4>다이아몬드 원가↑인데 소구 약하면 다이소 저가 VT와 평면비교 → 가격저항 깰 논리 필요.</div>
+    <div class="card"><h4>🔁 주1회 LTV</h4>5,000샷 1병 2~3달+ → 재구매 느림. <strong>데일리 진정 크로스셀·세트구성</strong>을 상세페이지 단계부터.</div>
+  </div>
+
+  <div class="callout-warn"><strong>가장 큰 단일 리스크 — 부작용 → 커뮤니티 퇴출.</strong> “바다 활동용”처럼 마케팅하면 소비자가 손상 직후(장벽붕괴·홍조)에 발라 접촉성 피부염·뒤집어짐 발생 가능. 좁은 버디·강사 네트워크 특성상 <strong>“이거 발랐다가 얼굴 뒤집어졌다” 소문 한 번이면 신뢰노드가 추천 철회 → 진입시장에서 영구퇴출.</strong></div>
+</section>
+
+<!-- 6 -->
+<section id="s6">
+  <h2><span class="num">6</span>상세페이지 기획 함의</h2>
+
+  <div class="verdict big">포지셔닝: <strong>“바다에서 시작됐지만, 바다에 가지 않아도 되는 — 물·자외선에 지친 피부의 주1회 회복 부스터.”</strong><br>
+  <span style="font-size:15px;color:var(--muted)">오션인 = hero · 신뢰앵커 · 성분내러티브 / 일반구매자 = 피부상태 자기선택 전환.</span></div>
+
+  <h3>권장 구성 (감정곡선)</h3>
+  <ol class="steps">
+    <li><strong>오션인의 극한 노출 장면</strong> — 감각카피(당기고 달아오른 얼굴, 버디문화). Hero·정체성.</li>
+    <li><strong>자기진단 다리</strong> — “바다에 가지 않아도, 세안 후 심한 당김·거친 결·칙칙함·화장품 겉돎 중 2개면 당신도.” 일반구매자 포섭.</li>
+    <li><strong>부스터 역할 교육(선택기준 교육)</strong> — 1등 경쟁 아닌 “기존 루틴 위 주1회 얹는 부스터”, 시너지.</li>
+    <li><strong>시점분리 안전설계</strong> — 현장 직후=진정·보습 / 스피큘=안정된 날 저녁 주1회. 홍조·상처·일광화상 시 사용금지 명시.</li>
+    <li><strong>제품 기술·근거(규제안전)</strong> — 각질정돈·특허스피큘·다이아몬드 25ppm 함유 + 완제품 성적서 확인분만 시험조건 병기.</li>
+    <li><strong>신뢰근거</strong> — 강사·오션인 리뷰(커뮤니티=신뢰), 원료 산지·채취(해양보호를 스토리 아닌 증거로).</li>
+    <li><strong>CTA + 세트·재구매 설계</strong> — 데일리 진정 크로스셀, 체험분 진입장벽↓, 비수기 브릿지.</li>
+  </ol>
+</section>
+
+<!-- 7 -->
+<section id="s7">
+  <h2><span class="num">7</span>전략 결정 · 데이터 공백</h2>
+  <p class="sub" style="margin-left:0">데이터·근거·선택지는 정리했으나 결론은 못박지 않음 — 대표·리건 판단 영역.</p>
+
+  <div class="decision"><span class="q">1. 다이아몬드 컨셉</span><br>소구 약함 판명. 제품명은 유지하되 상세페이지 hero를 “회복·장벽” 서사로 옮길까?</div>
+  <div class="decision"><span class="q">2. 안전 프레이밍</span><br>“고자극→회복” 서사가 부작용 리스크의 방아쇠. 시점분리·사용금지 조건을 얼마나 전면에? (신뢰 vs 매력 트레이드오프)</div>
+  <div class="decision"><span class="q">3. 성비 · 계절성</span><br>남녀공용 설계 여부, 비수기 매출 브릿지.</div>
+  <div class="decision"><span class="q">4. 세트 · 가격</span><br>다이소 저가 VT 대비 가격저항 + 주1회 LTV → 세트/구독 구조.</div>
+
+  <h3>데이터 공백 (보강 권장)</h3>
+  <ul>
+    <li>프리다이버·강사·항해사 정확 국내 인구·뷰티지출 → 웹 불가, <strong>강사 인터뷰·커뮤니티 설문</strong>으로 보강.</li>
+    <li>완제품 임상·기능성 증빙 → <strong>대표 제출</strong>(위 필수 증빙 리스트).</li>
+    <li>실제 판매 전환율 → 대표측 데이터 없음.</li>
+  </ul>
+</section>
+
+<footer>
+  3-CLI 삼각검증 리서치 · <span class="eng">Codex</span> 시장·경쟁·과학규제 웹조사 · <span class="eng">Claude</span> 타겟·종합 · <span class="eng">Gemini</span> 레드팀<br>
+  Nofail Design · 2026-08-21 · 내부 브리핑용
+</footer>
+
+</div>
+</body>
+</html>
