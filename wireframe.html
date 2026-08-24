@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>선데이투먼데이 다이아몬드 스피큘 — 상세페이지 와이어프레임 (모바일)</title>
+<!--
+  선데이투먼데이 다이아몬드 스피큘 5,000샷 · 모바일 상세페이지 와이어프레임
+  기준: wireframe-guide-detail.md v1 (480px / 그레이스케일 / 이미지=플레이스홀더 / PASONA)
+  카피: 리서치 리포트 기획 방향 반영 (규제 안전 표현 · 시점분리 · 오션 신뢰앵커 · 세트 CTA)
+  ※ 효과 수치는 완제품 시험 성적서 확인 후 기입(플레이스홀더로 자리만).
+-->
+<style>
+  :root{
+    --text-black:#111; --text-dark:#333; --text-gray:#666; --text-light:#999;
+    --line:#e0e0e0; --line-soft:#eee;
+    --bg:#f5f5f5; --bg-card:#fff; --bg-soft:#f0f0f0; --bg-dark:#2d2d2d;
+    --ph-bg:#e8e8e8; --ph-text:#999;
+    --radius:12px; --radius-sm:8px; --pad-section:48px 20px; --bar-h:64px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{width:100%;overflow-x:hidden}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Apple SD Gothic Neo',sans-serif;
+    color:var(--text-black);background:var(--bg);line-height:1.6;word-break:keep-all;
+    max-width:480px;margin:0 auto;padding-bottom:var(--bar-h);box-shadow:0 0 20px rgba(0,0,0,.1)}
+  section{padding:var(--pad-section);background:var(--bg-card)}
+  section:nth-of-type(even){background:var(--bg)}
+  .section-title{font-size:22px;font-weight:700;text-align:center;line-height:1.4;margin-bottom:8px}
+  .section-subtitle{font-size:14px;color:var(--text-gray);text-align:center;margin-bottom:28px}
+  .block-title{font-size:16px;font-weight:700;margin:28px 0 14px}
+  .divider{width:40px;height:3px;background:var(--text-black);margin:14px auto 28px;border-radius:2px}
+  strong{font-weight:700}
+  .ph{background:var(--ph-bg);color:var(--ph-text);display:flex;align-items:center;justify-content:center;
+    text-align:center;font-size:13px;border-radius:var(--radius-sm);border:1px dashed #ccc;padding:12px}
+  .ph-hero{height:300px;border-radius:0}
+  .ph-wide{height:180px}
+  .ph-square{aspect-ratio:1/1}
+  .ph-icon{width:44px;height:44px;flex:0 0 44px;font-size:11px;border-radius:50%}
+  .card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  .dark{background:var(--bg-dark);color:#fff;border-radius:var(--radius);padding:20px}
+  .dark .section-subtitle,.dark p{color:#cfcfcf}
+  .tag{display:inline-block;font-size:12px;color:var(--text-dark);background:var(--bg-soft);
+    border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin:2px 3px}
+  .note{font-size:11px;color:var(--text-light);margin-top:6px}
+  .btn{display:block;width:100%;text-align:center;padding:16px;border-radius:var(--radius-sm);
+    font-size:16px;font-weight:700;border:none;cursor:pointer;text-decoration:none}
+  .btn-primary{background:var(--text-black);color:#fff}
+  .btn-secondary{background:#fff;color:var(--text-black);border:1.5px solid var(--text-black)}
+  ul{list-style:none}
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  /* 고정 하단 구매바 */
+  .buybar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;
+    height:var(--bar-h);background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;
+    gap:10px;padding:0 16px;z-index:50}
+  .buybar .price{flex:1}
+  .buybar .price .now{font-size:18px;font-weight:800}
+  .buybar .price .was{font-size:12px;color:var(--text-light);text-decoration:line-through;margin-left:4px}
+  .buybar .btn{width:auto;flex:0 0 58%;padding:14px}
+  .wf-flag{background:#fff;border:1px dashed #bbb;color:#777;font-size:11px;text-align:center;padding:6px;letter-spacing:.02em}
+</style>
+</head>
+<body>
+
+<div class="wf-flag">■ 와이어프레임(모바일 480px · 그레이스케일 · 이미지 플레이스홀더) — 카피·구조 검토용, 실제 사진/최종 수치 추후 반영</div>
+
+<!-- [1] HERO -->
+<section class="hero" style="padding:0 0 40px">
+  <div class="ph ph-hero">[히어로 이미지 — 바다에서 막 나온 인물의 얼굴/장면, 물기·햇빛]</div>
+  <div style="padding:28px 20px 0;text-align:center">
+    <h1 style="font-size:25px;font-weight:800;line-height:1.4">“바다에서 시작됐지만,<br>바다에 가지 않아도 되는”<br><span style="font-size:19px;color:var(--text-gray)">물·햇빛에 지친 피부를 위한<br>주 1회 회복 부스터</span></h1>
+    <p style="margin-top:16px;color:var(--text-gray);font-size:13.5px;line-height:1.8">
+      바다에서 오래 시간을 보내는 사람들이 먼저 알아본 케어<br>
+      해면(스피큘)에서 온, 각질을 정돈하는 부스터<br>
+      주 1회, 기존 스킨케어 위에 얹는 한 샷
+    </p>
+  </div>
+  <div class="g2" style="padding:24px 20px 0">
+    <div class="card" style="display:flex;gap:10px;align-items:center;padding:12px;background:var(--bg)">
+      <div class="ph ph-icon">[아이콘]</div><div><h3 style="font-size:14px">다음 날 매끈함</h3><p style="font-size:12px;color:var(--text-gray)">거친 결을 정돈</p></div></div>
+    <div class="card" style="display:flex;gap:10px;align-items:center;padding:12px;background:var(--bg)">
+      <div class="ph ph-icon">[아이콘]</div><div><h3 style="font-size:14px">후속 흡수 부스팅</h3><p style="font-size:12px;color:var(--text-gray)">겉돌던 화장품이 착</p></div></div>
+    <div class="card" style="display:flex;gap:10px;align-items:center;padding:12px;background:var(--bg)">
+      <div class="ph ph-icon">[아이콘]</div><div><h3 style="font-size:14px">주 1회 간편</h3><p style="font-size:12px;color:var(--text-gray)">세안 후 한 샷</p></div></div>
+    <div class="card" style="display:flex;gap:10px;align-items:center;padding:12px;background:var(--bg)">
+      <div class="ph ph-icon">[아이콘]</div><div><h3 style="font-size:14px">남녀공용·무향</h3><p style="font-size:12px;color:var(--text-gray)">누구나 부담 없이</p></div></div>
+  </div>
+</section>
+
+<!-- [2] PROOF -->
+<section>
+  <h2 class="section-title">“숫자로 확인하세요”</h2>
+  <p class="section-subtitle">완제품 인체적용시험 결과 <span class="note">※ 시험기관·기간·피험자 수 표기 자리</span></p>
+  <div class="g2">
+    <div class="card" style="text-align:center"><div style="font-size:13px;color:var(--text-gray)">피부결 개선</div><div style="font-size:26px;font-weight:800;margin:6px 0">[00%]</div><div style="font-size:12px;color:var(--text-light)">[사용 N주 후]</div></div>
+    <div class="card" style="text-align:center"><div style="font-size:13px;color:var(--text-gray)">후속 흡수</div><div style="font-size:26px;font-weight:800;margin:6px 0">[00%]</div><div style="font-size:12px;color:var(--text-light)">[측정 조건]</div></div>
+    <div class="card" style="text-align:center"><div style="font-size:13px;color:var(--text-gray)">보습 지표</div><div style="font-size:26px;font-weight:800;margin:6px 0">[00%]</div><div style="font-size:12px;color:var(--text-light)">[기간]</div></div>
+    <div class="card" style="text-align:center"><div style="font-size:13px;color:var(--text-gray)">피부 매끄러움</div><div style="font-size:26px;font-weight:800;margin:6px 0">[00%]</div><div style="font-size:12px;color:var(--text-light)">[기간]</div></div>
+  </div>
+  <p class="note" style="text-align:center;margin-top:10px">※ 완제품 인체적용시험 성적서로 확인된 항목·수치만 기입. 원료·타 연구 수치를 제품 성능으로 표기 금지.</p>
+  <div class="card" style="margin-top:20px;text-align:center">
+    <div style="font-size:14px;font-weight:700;margin-bottom:8px">안전을 위한 확인</div>
+    <span class="tag">피부 자극 시험</span><span class="tag">MoCRA 시설 등록*</span><span class="tag">주요 유해성분 무첨가</span>
+    <p class="note">* 미국 화장품 규정(MoCRA)에 따른 등록이며, FDA의 효능·안전성 승인을 의미하지 않습니다.</p>
+  </div>
+  <div class="card" style="margin-top:14px;display:flex;gap:12px;align-items:center">
+    <div class="ph ph-icon" style="width:52px;height:52px;flex:0 0 52px">[후기]</div>
+    <div><p style="font-size:13.5px">“세션 끝나고 며칠 뒤 발랐더니 다음 날 결이 확실히 정돈됐어요.”</p><p class="note">프리다이버 · 실제 사용 후기 자리</p></div>
+  </div>
+</section>
+
+<!-- [3] PROBLEM -->
+<section>
+  <h2 class="section-title">“이런 피부, 당신 이야기인가요?”</h2>
+  <p class="section-subtitle">바다에 가지 않아도 — 아래 중 2가지 이상이면</p>
+  <div class="g2">
+    <div class="card"><div class="ph ph-icon" style="margin-bottom:8px">[아이콘]</div><p style="font-size:14px">세안하고 나면 심하게 <strong>당기고 뻣뻣</strong></p></div>
+    <div class="card"><div class="ph ph-icon" style="margin-bottom:8px">[아이콘]</div><p style="font-size:14px">결이 <strong>거칠어</strong> 화장이 자꾸 뜬다</p></div>
+    <div class="card"><div class="ph ph-icon" style="margin-bottom:8px">[아이콘]</div><p style="font-size:14px">바르는 <strong>화장품이 겉도는</strong> 느낌</p></div>
+    <div class="card"><div class="ph ph-icon" style="margin-bottom:8px">[아이콘]</div><p style="font-size:14px">햇빛·바람 뒤 <strong>칙칙하고 푸석</strong></p></div>
+  </div>
+</section>
+
+<!-- [4] EMPATHY -->
+<section>
+  <div class="ph ph-wide" style="margin-bottom:20px">[감성 이미지 — 바다·서로를 챙기는 장면(버디)]</div>
+  <blockquote style="font-size:17px;font-weight:700;line-height:1.6;text-align:center;padding:0 6px">“바다에서 나오면 얼굴이 당기고 화끈거렸어요.<br>선크림·진정만으론 늘 부족했죠.”</blockquote>
+  <p class="section-subtitle" style="margin-top:12px">— 오션 액티브 컨슈머의 공통된 경험</p>
+  <p style="font-size:14px;color:var(--text-dark);text-align:center;line-height:1.8">
+    물과 햇빛을 사랑하는 사람일수록, 피부는 더 자주 지칩니다.<br>
+    <strong>그래서 바다 사람들의 회복 리듬에서 시작했습니다.</strong>
+  </p>
+</section>
+
+<!-- [5] CAUSE -->
+<section>
+  <h2 class="section-title">“왜 늘 거칠고 당길까요?”</h2>
+  <div class="divider"></div>
+  <div class="ph ph-wide" style="margin-bottom:20px">[Before / After 피부 표면 도해 — 거친 각질 → 정돈된 결]</div>
+  <div class="card" style="margin-bottom:10px"><strong>① 오래 물에 젖음</strong><p style="font-size:13.5px;color:var(--text-gray)">장시간 물 노출로 각질층이 붇고, 나온 뒤 당김·건조가 반복됩니다.</p></div>
+  <div class="card" style="margin-bottom:10px"><strong>② 강한 자외선</strong><p style="font-size:13.5px;color:var(--text-gray)">수면 반사까지 더해 결·톤이 거칠어집니다.</p></div>
+  <div class="card" style="margin-bottom:16px"><strong>③ 반복 세정</strong><p style="font-size:13.5px;color:var(--text-gray)">자주 씻을수록 피부는 더 쉽게 푸석해집니다.</p></div>
+  <div class="dark"><p style="font-size:15px;font-weight:700;color:#fff">일반 보습만으론, 이미 거칠어진 결 위로 성분이 겉돌기 쉽습니다.</p><p>필요한 건 <strong style="color:#fff">거친 각질을 먼저 정돈해, 다음 케어가 잘 스며들 길을 여는 한 단계</strong>입니다.</p></div>
+</section>
+
+<!-- [6] SOLUTION -->
+<section>
+  <h2 class="section-title">“해면에서 온 미세 스피큘”</h2>
+  <p class="section-subtitle">묵은 각질을 부드럽게 정돈하는 부스터</p>
+  <div class="card" style="margin-bottom:10px">
+    <span class="tag">해면 유래 스피큘</span>
+    <h3 style="font-size:15px;margin:8px 0 4px">솔루션 1 — 결을 정돈</h3>
+    <p style="font-size:13.5px;color:var(--text-gray)">미세한 스피큘이 피부 표면의 묵은 각질을 부드럽게 정돈해 매끄럽게 합니다.</p>
+  </div>
+  <div class="card" style="margin-bottom:10px">
+    <span class="tag">부스팅 설계</span>
+    <h3 style="font-size:15px;margin:8px 0 4px">솔루션 2 — 흡수의 길</h3>
+    <p style="font-size:13.5px;color:var(--text-gray)">정돈된 결 위로, 다음에 바르는 스킨케어가 겉돌지 않고 잘 스며들도록 돕습니다.</p>
+  </div>
+  <div class="card">
+    <span class="tag">진정·보습 성분</span>
+    <h3 style="font-size:15px;margin:8px 0 4px">솔루션 3 — 편안하게</h3>
+    <p style="font-size:13.5px;color:var(--text-gray)">판테놀·병풀 등 보습·진정 성분을 함께 담아 사용 후 피부를 편안하게 관리합니다.</p>
+  </div>
+  <p class="note" style="margin-top:12px">※ 화장품이며 의약품이 아닙니다. ‘치료·재생·피부 침투’ 등 의약품 오인 표현은 사용하지 않습니다.</p>
+</section>
+
+<!-- [6-1] 핵심 성분 -->
+<section>
+  <h2 class="section-title">핵심 원료 — 스피큘</h2>
+  <div class="divider"></div>
+  <div class="ph ph-square" style="max-width:220px;margin:0 auto 20px">[스피큘 원료 확대 이미지]</div>
+  <p style="font-size:14px;color:var(--text-dark);text-align:center">청정 바다에 서식하는 해면에서 얻은 미세 결정 구조의 천연 원료입니다.</p>
+  <div class="dark" style="margin:18px 0;text-align:center"><div style="font-size:13px;color:#bbb">대표 함량</div><div style="font-size:30px;font-weight:800;color:#fff">[00 ppm]</div><div class="note" style="color:#aaa">※ 완제품 규격서로 확인된 함량 기입</div></div>
+  <div class="g2">
+    <div class="card"><h3 style="font-size:14px">각질 정돈</h3><p style="font-size:12.5px;color:var(--text-gray)">매끄러운 결</p></div>
+    <div class="card"><h3 style="font-size:14px">후속 흡수</h3><p style="font-size:12.5px;color:var(--text-gray)">겉돌지 않게</p></div>
+    <div class="card"><h3 style="font-size:14px">보습 케어</h3><p style="font-size:12.5px;color:var(--text-gray)">편안한 마무리</p></div>
+    <div class="card"><h3 style="font-size:14px">주 1회</h3><p style="font-size:12.5px;color:var(--text-gray)">부담 없는 리듬</p></div>
+  </div>
+  <div class="card" style="margin-top:14px"><strong>제조 기술</strong><p style="font-size:13px;color:var(--text-gray)">활성 성분을 담은 스피큘 설계 <span class="tag">특허 [번호 기입]</span></p><p class="note">※ 특허는 권리자·해당 청구항 확인 후 표기. 특허=효능 인증 아님.</p></div>
+</section>
+
+<!-- [6-2] 전성분 -->
+<section>
+  <h2 class="section-title">전성분</h2>
+  <p class="section-subtitle">피부에 닿는 모든 것을 투명하게</p>
+  <div class="g2">
+    <div class="card"><h3 style="font-size:13.5px">[대표 성분 1]</h3><p style="font-size:12px;color:var(--text-gray)">[효능 한 줄]</p></div>
+    <div class="card"><h3 style="font-size:13.5px">[대표 성분 2]</h3><p style="font-size:12px;color:var(--text-gray)">[효능 한 줄]</p></div>
+    <div class="card"><h3 style="font-size:13.5px">[대표 성분 3]</h3><p style="font-size:12px;color:var(--text-gray)">[효능 한 줄]</p></div>
+    <div class="card"><h3 style="font-size:13.5px">[대표 성분 4]</h3><p style="font-size:12px;color:var(--text-gray)">[효능 한 줄]</p></div>
+  </div>
+  <div class="dark" style="margin-top:16px"><strong style="color:#fff">무첨가</strong><p>[인공향]·[인공색소]·[파라벤] 등 <strong style="color:#fff">[N]가지 무첨가</strong> <span class="note" style="color:#aaa">(실제 처방 기준으로 확정)</span></p></div>
+  <p class="note" style="margin-top:8px">※ 전성분은 상품정보고시에 함량 순으로 전체 표기.</p>
+</section>
+
+<!-- [6-4] 사용법 (시점분리 안전설계) -->
+<section>
+  <h2 class="section-title">이렇게 사용하세요</h2>
+  <p class="section-subtitle">주 1회 · 세안 후 첫 단계</p>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div class="card" style="display:flex;gap:12px;align-items:center"><div class="ph ph-icon">[Step1]</div><div><strong>STEP 1</strong><p style="font-size:13px;color:var(--text-gray)">세안 후, 피부가 편안한 저녁에 사용</p></div></div>
+    <div class="card" style="display:flex;gap:12px;align-items:center"><div class="ph ph-icon">[Step2]</div><div><strong>STEP 2</strong><p style="font-size:13px;color:var(--text-gray)">1샷을 얼굴 전체에 부드럽게 펴 바름(문지르지 않기)</p></div></div>
+    <div class="card" style="display:flex;gap:12px;align-items:center"><div class="ph ph-icon">[Step3]</div><div><strong>STEP 3</strong><p style="font-size:13px;color:var(--text-gray)">흡수 후 평소 쓰던 수분·크림으로 충분히 보습 마무리</p></div></div>
+  </div>
+  <div class="dark" style="margin-top:16px">
+    <strong style="color:#fff">바다·수영 직후엔 이렇게</strong>
+    <p>물놀이 직후엔 <strong style="color:#fff">깨끗한 물로 씻고 진정·보습만.</strong> 스피큘은 <strong style="color:#fff">피부가 편안해진 회복일 저녁</strong>에 사용하세요.</p>
+    <p style="margin-top:8px">햇볕에 탄 피부, 열감·홍조·따가움·심한 당김이나 <strong style="color:#fff">상처가 있는 부위엔 사용하지 마세요.</strong> 민감성 피부는 먼저 팔 안쪽에 국소 테스트를 권장합니다.</p>
+  </div>
+  <p class="note" style="margin-top:8px">※ 미세 스피큘 특성상 가벼운 따끔함이 있을 수 있습니다. 따가움의 세기가 효과를 뜻하지 않으며, 강한 화끈거림·지속되는 붉음·트러블 시 사용을 중단하세요.</p>
+</section>
+
+<!-- [7] EVIDENCE -->
+<section>
+  <h2 class="section-title">신뢰의 근거</h2>
+  <div class="divider"></div>
+  <h3 class="block-title">인체적용시험</h3>
+  <div class="card"><p style="font-size:13.5px">[완제품 인체적용시험 결과 요약 — 지표·개선율]</p><p class="note">시험기관 / 기간 / 피험자 수 / 측정방법 / 대조군 표기 자리</p></div>
+  <h3 class="block-title">특허</h3>
+  <div class="card"><p style="font-size:13.5px">[스피큘 관련 특허명]</p><p class="note">특허번호·권리자 확인 후 기입 · 특허는 효능 인증이 아님</p></div>
+  <h3 class="block-title">안전성</h3>
+  <div class="g2">
+    <div class="card" style="text-align:center"><div class="ph ph-icon" style="margin:0 auto 6px">[인증]</div><p style="font-size:12.5px">피부 자극 시험</p></div>
+    <div class="card" style="text-align:center"><div class="ph ph-icon" style="margin:0 auto 6px">[인증]</div><p style="font-size:12.5px">MoCRA 시설 등록*</p></div>
+  </div>
+  <p class="note" style="margin-top:8px">* FDA 승인·효능 인증이 아닌 등록 사실입니다.</p>
+</section>
+
+<!-- [7.5] STORIES -->
+<section>
+  <h2 class="section-title">달라진 하루</h2>
+  <p class="section-subtitle">바다를 포기하지 않는 사람들의 후기</p>
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div class="card" style="display:flex;gap:12px;align-items:center"><div class="ph ph-icon" style="width:56px;height:56px;flex:0 0 56px">[장면]</div><div><p style="font-size:13.5px">“주말 서핑, 주중에 한 샷. 다음 날 화장이 확실히 잘 먹어요.”</p><p class="note">서퍼 · 실제 후기 자리</p></div></div>
+    <div class="card" style="display:flex;gap:12px;align-items:center"><div class="ph ph-icon" style="width:56px;height:56px;flex:0 0 56px">[장면]</div><div><p style="font-size:13.5px">“바다 안 가는 날도 세안 후 당김이 줄었어요.”</p><p class="note">일반 사용자 · 실제 후기 자리</p></div></div>
+    <div class="card" style="display:flex;gap:12px;align-items:center"><div class="ph ph-icon" style="width:56px;height:56px;flex:0 0 56px">[장면]</div><div><p style="font-size:13.5px">“강사님이 추천해서 써봤는데 결 정돈이 확실해요.”</p><p class="note">프리다이빙 수강생 · 실제 후기 자리</p></div></div>
+  </div>
+  <p class="section-subtitle" style="margin:20px 0 0">바다가 준 흔적은, 바다에서 온 것으로.</p>
+</section>
+
+<!-- [8] CTA -->
+<section>
+  <h2 class="section-title">지금 시작하기</h2>
+  <div class="ph ph-square" style="max-width:240px;margin:0 auto 18px">[제품 이미지]</div>
+  <div style="text-align:center">
+    <h3 style="font-size:18px">다이아몬드 스피큘 5,000샷</h3>
+    <p style="font-size:13px;color:var(--text-gray)">[용량] · 주 1회 부스터 앰플</p>
+    <div style="margin:12px 0"><span style="font-size:14px;color:var(--text-light);text-decoration:line-through">[정가]</span> <span style="font-size:24px;font-weight:800;margin-left:6px">[판매가]</span></div>
+  </div>
+  <a class="btn btn-primary" href="#" style="margin-bottom:10px">단품 구매하기</a>
+  <a class="btn btn-secondary" href="#">회복 세트로 구매 (앰플 + 데일리 진정)</a>
+  <p class="note" style="text-align:center;margin-top:8px">주 1회 사용 제품 — 매일 쓰는 진정·미스트와 함께 쓰면 좋아요</p>
+  <div style="display:flex;gap:8px;justify-content:center;margin-top:14px">
+    <span class="tag">첫 구매 혜택</span><span class="tag">체험 사이즈</span><span class="tag">묶음 할인</span>
+  </div>
+  <div class="g2" style="margin-top:14px">
+    <a class="btn btn-secondary" href="#" style="font-size:14px;padding:12px">카카오 문의</a>
+    <a class="btn btn-secondary" href="#" style="font-size:14px;padding:12px">전화 문의</a>
+  </div>
+</section>
+
+<!-- [9] 상품정보고시 -->
+<section style="background:var(--bg-soft)">
+  <h2 class="section-title" style="font-size:18px">상품정보 제공고시</h2>
+  <p class="section-subtitle">전자상거래법 필수 표기 (화장품)</p>
+  <div style="font-size:13px;color:var(--text-dark)">
+    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>상품명 / 용량</strong> · [상품명] / [용량·중량]</p>
+    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>사용기한</strong> · 개봉 전/후 [ ] · 제조연월 [ ]</p>
+    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>제조·책임판매업자 / 제조국</strong> · [ ] / [ ]</p>
+    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>기능성 여부</strong> · [기능성 심사·보고 여부] </p>
+    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>전성분</strong> · [함량 순 전체 표기]</p>
+    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>사용 시 주의사항</strong> · 이상반응 시 사용 중지 · 상처부위 사용 금지 · 눈 접촉 주의 · 어린이 손 닿지 않는 곳 보관</p>
+    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>품질보증 / 고객상담</strong> · 소비자분쟁해결기준에 따름 · 상담 [번호]</p>
+    <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>배송</strong> · [배송비·기간·방법]</p>
+    <p style="padding:10px 0"><strong>교환·반품</strong> · [단순변심/불량 조건·반품비] · 판매자 [상호·주소·연락처]</p>
+  </div>
+</section>
+
+<footer style="padding:24px 20px 32px;text-align:center;color:var(--text-light);font-size:12px;background:#fff">
+  선데이투먼데이 다이아몬드 스피큘 · 상세페이지 와이어프레임(모바일) · 카피/구조 검토용
+</footer>
+
+<!-- 고정 하단 구매바 -->
+<div class="buybar">
+  <div class="price"><span class="now">[판매가]</span><span class="was">[정가]</span></div>
+  <a class="btn btn-primary" href="#">구매하기</a>
+</div>
+
+</body>
+</html>
