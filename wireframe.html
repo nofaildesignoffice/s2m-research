@@ -37,6 +37,12 @@
   .ph-square{aspect-ratio:1/1}
   .ph-icon{width:44px;height:44px;flex:0 0 44px;font-size:11px;border-radius:50%}
   .card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+  /* 인증서/시험성적서 자리 (문서형 플레이스홀더) */
+  .cert{background:#fff;border:1.5px dashed #b0b0b0;border-radius:var(--radius-sm);min-height:124px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+    gap:4px;padding:14px;font-size:12.5px;font-weight:700;color:#666}
+  .cert span{font-size:11px;font-weight:400;color:var(--text-light)}
+  .cert::before{content:"CERT";font-size:10px;letter-spacing:.1em;color:#bbb;border:1px solid #ddd;border-radius:4px;padding:1px 6px;margin-bottom:4px}
   .dark{background:var(--bg-dark);color:#fff;border-radius:var(--radius);padding:20px}
   .dark .section-subtitle,.dark p{color:#cfcfcf}
   .tag{display:inline-block;font-size:12px;color:var(--text-dark);background:var(--bg-soft);
@@ -249,8 +255,14 @@
   <div class="card" style="display:flex;gap:12px"><div class="ph" style="width:64px;height:80px;flex:0 0 64px;font-size:10px">[논문]</div><div><strong style="font-size:14px">해양 해면 스피큘</strong><p style="font-size:13px;color:var(--text-gray)">친수성 생체 고분자의 피부 흡수 <strong>33배 증가</strong></p></div></div>
   <p class="note" style="margin-top:10px">※ 스피큘 소재에 관한 <strong>선행 연구(동물·모델물질)</strong> 결과이며, 본 제품의 인체적용시험 결과가 아닙니다.</p>
 
-  <h3 class="block-title">특허</h3>
-  <div class="card"><p style="font-size:13.5px">활성 성분을 담은 스피큘 정제 기술 <span class="tag">특허 [번호 기입]</span></p><p class="note">특허번호·권리자 확인 후 기입 · 특허는 효능 인증이 아닙니다</p></div>
+  <h3 class="block-title">인증 · 시험 성적서 <span style="font-size:12px;font-weight:400;color:var(--text-light)">(실물 스캔 자리)</span></h3>
+  <div class="g2" style="gap:10px">
+    <div class="cert">인체적용시험 성적서<span>4주·22명 주름/탄력</span></div>
+    <div class="cert">기능성화장품 심사·보고 필증<span>미백·주름개선</span></div>
+    <div class="cert">피부 자극 시험 성적서<span>안전성</span></div>
+    <div class="cert">특허증<span>스피큘 정제 기술·번호</span></div>
+  </div>
+  <p class="note" style="margin-top:8px">※ 각 인증서/성적서는 <strong>발급기관·문서번호·발급일</strong>이 보이는 실물 스캔 이미지로 교체합니다.</p>
 </section>
 
 <!-- [7b] MoCRA 등록 -->
@@ -264,6 +276,7 @@
       <div style="background:#3a3a3a;border-radius:8px;padding:12px"><strong style="color:#fff;font-size:13px">글로벌 기준 통과</strong></div>
       <div style="background:#3a3a3a;border-radius:8px;padding:12px"><strong style="color:#fff;font-size:13px">피부 안전성 데이터 확보</strong></div>
     </div>
+    <div class="cert" style="margin-top:16px;background:#eee;border-color:#888">MoCRA 등록증<span>FDA 시설·제품 등록 증빙</span></div>
     <p class="note" style="color:#aaa;margin-top:14px">* MoCRA는 제조시설·제품 등록이며, FDA의 효능·안전성 승인을 의미하지 않습니다.</p>
   </div>
 </section>
@@ -424,6 +437,45 @@
     <p style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>배송</strong> · [배송비·기간·방법]</p>
     <p style="padding:10px 0"><strong>교환·반품</strong> · [단순변심/불량 조건·반품비] · 판매자 [상호·주소·연락처]</p>
   </div>
+</section>
+
+<!-- [W] 제작 전 준비 자료 — 이미지 · 인증서 배치표 (와이어프레임 부록) -->
+<section style="background:var(--bg-soft)">
+  <div class="wf-flag" style="margin-bottom:16px">■ 제작 참고용 부록 — 실제 페이지에는 노출하지 않음</div>
+  <h2 class="section-title" style="font-size:18px">이미지 · 인증서 배치표</h2>
+  <p class="section-subtitle">어느 섹션에 어떤 이미지/인증서가 들어가는지 · 촬영·자료요청 체크리스트</p>
+
+  <h3 class="block-title">① 이미지 (촬영/제작)</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:12px">
+    <tr><th style="text-align:left;border-bottom:1.5px solid var(--line);padding:7px 4px;color:var(--text-dark)">위치(섹션)</th><th style="border-bottom:1.5px solid var(--line);padding:7px 4px">필요 이미지</th><th style="border-bottom:1.5px solid var(--line);padding:7px 4px">규격</th></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">히어로</td><td style="border-bottom:1px solid var(--line-soft)">바다에서 나온 인물 얼굴/장면(물기·햇빛)</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">풀폭 세로<br>480×640</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">히어로 강점</td><td style="border-bottom:1px solid var(--line-soft)">강점 아이콘 ×4</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">44px 원형</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">Proof 후기</td><td style="border-bottom:1px solid var(--line-soft)">오션 사용자 인물 썸네일 ×1</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">정사각</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">문제</td><td style="border-bottom:1px solid var(--line-soft)">고민 아이콘 ×4</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">아이콘</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">공감</td><td style="border-bottom:1px solid var(--line-soft)">바다·버디(서로 챙기는) 감성 이미지</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">와이드<br>480×180</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">원인</td><td style="border-bottom:1px solid var(--line-soft)">Before/After 피부 표면 도해</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">와이드</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">핵심 원료</td><td style="border-bottom:1px solid var(--line-soft)">스피큘 원료 확대 이미지</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">정사각</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">기능성/성분</td><td style="border-bottom:1px solid var(--line-soft)">성분 이미지 ×2 · 식물/판테놀 ×2</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">아이콘/스퀘어</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">전성분</td><td style="border-bottom:1px solid var(--line-soft)">대표 성분 아이콘 ×4</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">아이콘</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">사용법</td><td style="border-bottom:1px solid var(--line-soft)">STEP 사용 장면 ×3</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">정사각</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">글로벌 리뷰</td><td style="border-bottom:1px solid var(--line-soft)">Before/After ×4쌍(총 8장)</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">2:1 페어</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">스토리</td><td style="border-bottom:1px solid var(--line-soft)">오션 사용 장면 ×3</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">정사각</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">CTA</td><td style="border-bottom:1px solid var(--line-soft)">제품 단독 컷</td><td style="text-align:center;border-bottom:1px solid var(--line-soft)">정사각</td></tr>
+    <tr><td style="padding:7px 4px">프로그램</td><td>구성 컷 ×3 (1·3·5박스)</td><td style="text-align:center">가로형</td></tr>
+  </table>
+
+  <h3 class="block-title">② 인증서 · 문서 (고객사 발급자료 요청)</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:12px">
+    <tr><th style="text-align:left;border-bottom:1.5px solid var(--line);padding:7px 4px;color:var(--text-dark)">문서</th><th style="border-bottom:1.5px solid var(--line);padding:7px 4px">배치 위치</th><th style="border-bottom:1.5px solid var(--line);padding:7px 4px">용도</th></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">인체적용시험 성적서</td><td style="border-bottom:1px solid var(--line-soft)">Proof · Evidence</td><td style="border-bottom:1px solid var(--line-soft)">이마49·목14·눈가5·탄력13 근거</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">기능성화장품 심사·보고 필증</td><td style="border-bottom:1px solid var(--line-soft)">기능성 성분 · Evidence</td><td style="border-bottom:1px solid var(--line-soft)">미백·주름개선 표현 근거</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">피부 자극 시험 성적서</td><td style="border-bottom:1px solid var(--line-soft)">Proof · Evidence</td><td style="border-bottom:1px solid var(--line-soft)">안전성</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">특허증</td><td style="border-bottom:1px solid var(--line-soft)">Evidence(특허)</td><td style="border-bottom:1px solid var(--line-soft)">스피큘 정제 기술·번호</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">MoCRA 등록증</td><td style="border-bottom:1px solid var(--line-soft)">MoCRA 섹션</td><td style="border-bottom:1px solid var(--line-soft)">FDA 시설·제품 등록 증빙</td></tr>
+    <tr><td style="padding:7px 4px;border-bottom:1px solid var(--line-soft)">SCI 논문 원문 ×3</td><td style="border-bottom:1px solid var(--line-soft)">SCI 선행연구</td><td style="border-bottom:1px solid var(--line-soft)">2.26배·23.2%·33배 출처(소재 연구)</td></tr>
+    <tr><td style="padding:7px 4px">원료 규격서 · 전성분/무첨가 근거</td><td>전성분 · 핵심원료</td><td>함량(ppm)·무첨가 표기 근거</td></tr>
+  </table>
+  <p class="note" style="margin-top:10px">※ 인증서/성적서는 <strong>발급기관·문서번호·발급일</strong>이 보이게. 임상·기능성 근거 확보 전에는 해당 수치·표현을 게시하지 않습니다.</p>
 </section>
 
 <footer style="padding:24px 20px 32px;text-align:center;color:var(--text-light);font-size:12px;background:#fff">
