@@ -65,10 +65,12 @@
 
 <!-- [1] HERO -->
 <section class="hero" style="padding:0 0 40px">
-  <div class="ph ph-hero">[히어로 이미지 — 바다에서 막 나온 인물의 얼굴/장면, 물기·햇빛]</div>
-  <div style="padding:28px 20px 0;text-align:center">
-    <h1 style="font-size:25px;font-weight:800;line-height:1.4">“바다에서 시작됐지만,<br>바다에 가지 않아도 되는”<br><span style="font-size:19px;color:var(--text-gray)">물·햇빛에 지친 피부를 위한<br>주 1회 회복 부스터</span></h1>
-    <p style="margin-top:16px;color:var(--text-gray);font-size:13.5px;line-height:1.8">
+  <!-- 히어로: 이미지 플레이스홀더를 배경으로, 카피를 그 위에 오버레이 (실제 사진 적용 시 하단 가독성 확보 필요) -->
+  <div style="position:relative;min-height:520px;background:var(--ph-bg);border:1px dashed #ccc;
+              display:flex;flex-direction:column;justify-content:flex-end;text-align:center;padding:0 22px 36px">
+    <span style="position:absolute;top:14px;left:0;right:0;color:var(--ph-text);font-size:12px">[히어로 이미지 — 바다에서 막 나온 인물의 얼굴/장면, 물기·햇빛]</span>
+    <h1 style="font-size:25px;font-weight:800;line-height:1.4">“바다에서 시작됐지만,<br>바다에 가지 않아도 되는”<br><span style="font-size:19px;color:var(--text-dark)">물·햇빛에 지친 피부를 위한<br>주 1회 회복 부스터</span></h1>
+    <p style="margin-top:16px;color:var(--text-dark);font-size:13.5px;line-height:1.8">
       바다에서 오래 시간을 보내는 사람들이 먼저 알아본 케어<br>
       해면(스피큘)에서 온, 각질을 정돈하는 부스터<br>
       주 1회, 기존 스킨케어 위에 얹는 한 샷
