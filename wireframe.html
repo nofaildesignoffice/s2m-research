@@ -67,6 +67,12 @@
   .btn-secondary{background:#fff;color:var(--text-black);border:1.5px solid var(--text-black)}
   ul{list-style:none}
   .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  /* 성분 섹션: 원형 이미지 + 텍스트 (좌우 교차) */
+  .ing-row{display:flex;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line-soft)}
+  .ing-row.rev{flex-direction:row-reverse;text-align:right}
+  .ing-img{width:96px;height:96px;flex:0 0 96px;border-radius:50%;font-size:10px}
+  .ing-txt h3{font-size:15.5px;margin-bottom:5px}
+  .ing-txt p{font-size:13px;color:var(--text-gray);line-height:1.65}
   /* 원형(도넛) 그래프 — SVG stroke 방식 (그라데이션 미사용, 그레이스케일) */
   .donut{position:relative;width:116px;height:116px;margin:0 auto}
   .donut svg{transform:rotate(-90deg)}
@@ -293,37 +299,35 @@
 
 <!-- [6-1b] 검증된 기능성 성분 + 49성분 -->
 <section>
-  <h2 class="section-title">한 번에, 49가지 성분</h2>
-  <p class="section-subtitle">그중에서도 핵심은 다음과 같습니다</p>
-  <div class="card" style="margin-bottom:10px;display:flex;gap:12px;align-items:center">
-    <div class="ph ph-icon">[성분]</div>
-    <div><h3 style="font-size:15px">7가지 콜라겐 콤플렉스</h3><p style="font-size:13px;color:var(--text-gray)">각기 다른 분자 크기의 콜라겐을 한 번에, 폭넓게 담았습니다.</p></div>
-  </div>
-  <div class="card" style="display:flex;gap:12px;align-items:center">
-    <div class="ph ph-icon">[성분]</div>
-    <div><h3 style="font-size:15px">15-아미노산 콤플렉스</h3><p style="font-size:13px;color:var(--text-gray)">콜라겐의 구성 단위인 아미노산으로, 피부 본연의 단단함 케어에 도움을 줍니다.</p></div>
-  </div>
+  <h2 class="section-title">다이아몬드 스피큘이 전하는<br>49가지 성분</h2>
+  <p class="section-subtitle">그중에서도, 핵심은 다음 다섯 가지입니다</p>
 
-  <h3 class="block-title">검증된 기능성 성분 2종</h3>
-  <div class="card" style="margin-bottom:10px;display:flex;gap:12px;align-items:center">
-    <div class="ph ph-icon">[성분]</div>
-    <div><h3 style="font-size:15px">나이아신아마이드</h3><p style="font-size:13px;color:var(--text-gray)">피부 미백에 도움을 줍니다</p></div>
+  <!-- 이미지(원형) + 텍스트, 좌우 교차 -->
+  <div class="ing-row">
+    <div class="ph ing-img">[이미지]</div>
+    <div class="ing-txt"><h3>7가지 콜라겐 콤플렉스</h3><p>각기 다른 분자 크기의 콜라겐을 한 번에, 폭넓게 담았습니다.</p></div>
   </div>
-  <div class="card" style="display:flex;gap:12px;align-items:center">
-    <div class="ph ph-icon">[성분]</div>
-    <div><h3 style="font-size:15px">아데노신</h3><p style="font-size:13px;color:var(--text-gray)">피부 주름개선에 도움을 줍니다</p></div>
+  <div class="ing-row rev">
+    <div class="ph ing-img">[이미지]</div>
+    <div class="ing-txt"><h3>15-아미노산 콤플렉스</h3><p>콜라겐의 구성 단위인 아미노산으로, 피부 본연의 단단함 케어에 도움을 줍니다.</p></div>
   </div>
-  <p class="note" style="margin-top:8px">※ 완제품 기능성화장품 심사·보고 완료 시에만 표기. 스피큘·다이아몬드를 기능성 주성분처럼 표기하지 않습니다.</p>
+  <div class="ing-row">
+    <div class="ph ing-img">[이미지]</div>
+    <div class="ing-txt"><h3>검증된 기능성 성분 2종</h3><p>나이아신아마이드(미백)·아데노신(주름개선), 두 가지 식약처 고시 기능성 성분을 함께 담았습니다.</p></div>
+  </div>
+  <div class="ing-row rev">
+    <div class="ph ing-img">[이미지]</div>
+    <div class="ing-txt"><h3>천연 식물 추출물 엑소좀</h3><p>센텔라·티트리 등 자연 유래 진정 성분으로 피부를 편안하게 합니다.</p></div>
+  </div>
+  <div class="ing-row">
+    <div class="ph ing-img">[이미지]</div>
+    <div class="ing-txt"><h3>보습·진정 기본기, 판테놀</h3><p>판테놀(비타민 B5)이 보습과 진정의 기본을 잡아줍니다.</p></div>
+  </div>
+  <p class="note">※ 기능성(미백·주름개선)은 완제품 기능성화장품 심사·보고 완료 시에만 표기하며, 스피큘·다이아몬드를 기능성 주성분처럼 표기하지 않습니다.</p>
 
-  <h3 class="block-title">천연 식물 추출물 · 판테놀</h3>
-  <div class="g2">
-    <div class="card"><div class="ph ph-icon" style="margin-bottom:8px">[식물]</div><h3 style="font-size:14px">식물 유래 진정</h3><p style="font-size:12.5px;color:var(--text-gray)">센텔라·티트리 등 자연 유래 진정 성분</p></div>
-    <div class="card"><div class="ph ph-icon" style="margin-bottom:8px">[판테놀]</div><h3 style="font-size:14px">판테놀(비타민 B5)</h3><p style="font-size:12.5px;color:var(--text-gray)">보습·진정의 기본기</p></div>
-  </div>
-
-  <div class="dark" style="margin-top:18px;text-align:center">
-    <div style="font-size:34px;font-weight:800;color:#fff">49가지</div>
-    <p style="color:#ddd">성분이 한 번에, 다이아몬드 스피큘이 전하는 풀 영양 케어</p>
+  <div class="dark" style="margin-top:20px;text-align:center;border-radius:20px;padding:28px 20px">
+    <div style="font-size:40px;font-weight:800;color:#fff;line-height:1">49<span style="font-size:20px">가지</span></div>
+    <p style="color:#ddd;margin-top:8px">49가지 성분이 한 번에,<br>다이아몬드 스피큘이 전하는 풀 영양 케어</p>
   </div>
 </section>
 
