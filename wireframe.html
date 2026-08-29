@@ -54,6 +54,12 @@
   .btn-secondary{background:#fff;color:var(--text-black);border:1.5px solid var(--text-black)}
   ul{list-style:none}
   .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  /* 원형(도넛) 그래프 — SVG stroke 방식 (그라데이션 미사용, 그레이스케일) */
+  .donut{position:relative;width:116px;height:116px;margin:0 auto}
+  .donut svg{transform:rotate(-90deg)}
+  .donut .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .donut .val b{font-size:25px;font-weight:800;line-height:1}
+  .donut .val s{font-size:10px;color:var(--text-light);text-decoration:none;margin-top:3px}
   /* 고정 하단 구매바 */
   .buybar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;
     height:var(--bar-h);background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;
@@ -99,22 +105,34 @@
 <section>
   <h2 class="section-title">4주 후, 보이는 변화</h2>
   <p class="section-subtitle">4주간의 인체적용시험 결과 (부위별 측정)</p>
+  <div class="g2" style="gap:16px 10px">
+    <div style="text-align:center">
+      <div class="donut"><svg viewBox="0 0 100 100" width="116" height="116"><circle cx="50" cy="50" r="42" fill="none" stroke="var(--line)" stroke-width="8"/><circle cx="50" cy="50" r="42" fill="none" stroke="var(--text-black)" stroke-width="8" stroke-linecap="round" stroke-dasharray="129.3 263.9"/></svg><div class="val"><b>49%</b><s>감소</s></div></div>
+      <div style="font-size:13.5px;font-weight:700;margin-top:8px">이마 주름</div><div style="font-size:11px;color:var(--text-light)">사용 4주 후</div>
+    </div>
+    <div style="text-align:center">
+      <div class="donut"><svg viewBox="0 0 100 100" width="116" height="116"><circle cx="50" cy="50" r="42" fill="none" stroke="var(--line)" stroke-width="8"/><circle cx="50" cy="50" r="42" fill="none" stroke="var(--text-black)" stroke-width="8" stroke-linecap="round" stroke-dasharray="36.9 263.9"/></svg><div class="val"><b>14%</b><s>감소</s></div></div>
+      <div style="font-size:13.5px;font-weight:700;margin-top:8px">목 주름</div><div style="font-size:11px;color:var(--text-light)">사용 4주 후</div>
+    </div>
+    <div style="text-align:center">
+      <div class="donut"><svg viewBox="0 0 100 100" width="116" height="116"><circle cx="50" cy="50" r="42" fill="none" stroke="var(--line)" stroke-width="8"/><circle cx="50" cy="50" r="42" fill="none" stroke="var(--text-black)" stroke-width="8" stroke-linecap="round" stroke-dasharray="13.2 263.9"/></svg><div class="val"><b>5%</b><s>감소</s></div></div>
+      <div style="font-size:13.5px;font-weight:700;margin-top:8px">눈가 주름</div><div style="font-size:11px;color:var(--text-light)">사용 4주 후</div>
+    </div>
+    <div style="text-align:center">
+      <div class="donut"><svg viewBox="0 0 100 100" width="116" height="116"><circle cx="50" cy="50" r="42" fill="none" stroke="var(--line)" stroke-width="8"/><circle cx="50" cy="50" r="42" fill="none" stroke="var(--text-black)" stroke-width="8" stroke-linecap="round" stroke-dasharray="34.3 263.9"/></svg><div class="val"><b>13%</b><s>증가</s></div></div>
+      <div style="font-size:13.5px;font-weight:700;margin-top:8px">웃음선 탄력</div><div style="font-size:11px;color:var(--text-light)">사용 4주 후</div>
+    </div>
+  </div>
+  <p class="note" style="text-align:center;margin-top:14px">[다이아몬드 스피큘 5,000샷 4주 사용 인체적용시험] 피부임상연구센터 · 2022.02.24~03.04 · 40-50대 성인 22명 · 개인차 있음</p>
+
+  <h3 class="block-title" style="text-align:center">안전을 위한 확인</h3>
   <div class="g2">
-    <div class="card" style="text-align:center"><div style="font-size:13px;color:var(--text-gray)">이마 주름 감소</div><div style="font-size:30px;font-weight:800;margin:6px 0">49%</div><div style="font-size:12px;color:var(--text-light)">사용 4주 후</div></div>
-    <div class="card" style="text-align:center"><div style="font-size:13px;color:var(--text-gray)">목 주름 감소</div><div style="font-size:30px;font-weight:800;margin:6px 0">14%</div><div style="font-size:12px;color:var(--text-light)">사용 4주 후</div></div>
-    <div class="card" style="text-align:center"><div style="font-size:13px;color:var(--text-gray)">눈가 주름 감소</div><div style="font-size:30px;font-weight:800;margin:6px 0">5%</div><div style="font-size:12px;color:var(--text-light)">사용 4주 후</div></div>
-    <div class="card" style="text-align:center"><div style="font-size:13px;color:var(--text-gray)">웃음선 탄력 증가</div><div style="font-size:30px;font-weight:800;margin:6px 0">13%</div><div style="font-size:12px;color:var(--text-light)">사용 4주 후</div></div>
+    <div class="card" style="text-align:center"><div class="ph ph-icon" style="margin:0 auto 8px">[인증]</div><div style="font-size:13px;font-weight:700">피부 자극 시험</div><div style="font-size:11px;color:var(--text-light)">완료</div></div>
+    <div class="card" style="text-align:center"><div class="ph ph-icon" style="margin:0 auto 8px">[인증]</div><div style="font-size:13px;font-weight:700">미국 MoCRA 등록*</div><div style="font-size:11px;color:var(--text-light)">시설·제품</div></div>
+    <div class="card" style="text-align:center"><div class="ph ph-icon" style="margin:0 auto 8px">[인증]</div><div style="font-size:13px;font-weight:700">기능성화장품</div><div style="font-size:11px;color:var(--text-light)">미백·주름개선</div></div>
+    <div class="card" style="text-align:center"><div class="ph ph-icon" style="margin:0 auto 8px">[인증]</div><div style="font-size:13px;font-weight:700">주요 유해성분</div><div style="font-size:11px;color:var(--text-light)">무첨가</div></div>
   </div>
-  <p class="note" style="text-align:center;margin-top:10px">[다이아몬드 스피큘 5,000샷 4주 사용 인체적용시험] 피부임상연구센터 · 2022.02.24~03.04 · 40-50대 성인 22명 · 개인차 있음</p>
-  <div class="card" style="margin-top:20px;text-align:center">
-    <div style="font-size:14px;font-weight:700;margin-bottom:8px">안전을 위한 확인</div>
-    <span class="tag">피부 자극 시험</span><span class="tag">MoCRA 시설 등록*</span><span class="tag">주요 유해성분 무첨가</span>
-    <p class="note">* 미국 화장품 규정(MoCRA)에 따른 등록이며, FDA의 효능·안전성 승인을 의미하지 않습니다.</p>
-  </div>
-  <div class="card" style="margin-top:14px;display:flex;gap:12px;align-items:center">
-    <div class="ph ph-icon" style="width:52px;height:52px;flex:0 0 52px">[후기]</div>
-    <div><p style="font-size:13.5px">“세션 끝나고 며칠 뒤 발랐더니 다음 날 결이 확실히 정돈됐어요.”</p><p class="note">프리다이버 · 실제 사용 후기 자리</p></div>
-  </div>
+  <p class="note" style="text-align:center;margin-top:8px">* 미국 화장품 규정(MoCRA)에 따른 등록이며, FDA의 효능·안전성 승인을 의미하지 않습니다. 기능성은 완제품 심사·보고 완료 시 표기.</p>
 </section>
 
 <!-- [3] PROBLEM -->
