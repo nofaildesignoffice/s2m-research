@@ -60,6 +60,23 @@
   .donut .val{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
   .donut .val b{font-size:25px;font-weight:800;line-height:1}
   .donut .val s{font-size:10px;color:var(--text-light);text-decoration:none;margin-top:3px}
+  /* 임상 지표 행: 좌 큰 숫자 콜아웃 + 우 막대그래프 (레퍼런스 스타일) */
+  .stat-row{display:flex;gap:16px;align-items:flex-end;padding:20px 0;border-top:1px solid var(--line-soft)}
+  .stat-row:first-of-type{border-top:none;padding-top:6px}
+  .stat-cap{flex:1;min-width:0}
+  .stat-pill{display:inline-block;background:var(--text-black);color:#fff;font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:6px}
+  .stat-cap .lead{font-size:15px;margin-top:12px;line-height:1.4}
+  .stat-cap .lead strong{font-size:19px}
+  .stat-cap .big{margin-top:8px;white-space:nowrap}
+  .stat-cap .big b{font-size:40px;font-weight:800;letter-spacing:-.03em}
+  .stat-cap .big b.pct{font-size:26px}
+  .stat-cap .big span{font-size:15px;color:var(--text-gray);font-weight:700}
+  .stat-chart{flex:1;min-width:0}
+  .stat-bars{position:relative;height:126px;display:flex;align-items:flex-end;justify-content:space-around;border-bottom:2px solid var(--text-black)}
+  .stat-bars .grid{position:absolute;left:0;right:0;border-top:1px solid var(--line-soft)}
+  .stat-bars .bar{width:32%;border-radius:3px 3px 0 0}
+  .stat-x{display:flex;justify-content:space-around;margin-top:6px;font-size:11px;color:var(--text-gray)}
+  .stat-x span{width:32%;text-align:center}
   /* 고정 하단 구매바 */
   .buybar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;
     height:var(--bar-h);background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;
@@ -116,26 +133,43 @@
   <h2 class="section-title">4주 후, 보이는 변화</h2>
   <p class="section-subtitle">4주간의 인체적용시험 결과</p>
 
-  <!-- 레퍼런스 스타일: 좌 큰 숫자 콜아웃 + 우 막대그래프(사용 전 / 4주 후) -->
-  <div style="display:flex;gap:16px;align-items:flex-end;margin-top:6px">
-    <div style="flex:1;min-width:0">
-      <span style="display:inline-block;background:var(--text-black);color:#fff;font-size:12px;font-weight:700;padding:4px 11px;border-radius:6px">이마 주름 측정 %</span>
-      <div style="font-size:17px;margin-top:14px;line-height:1.45">4주 사용으로<br><strong style="font-size:21px">이마 주름 개선</strong></div>
-      <div style="margin-top:10px;white-space:nowrap"><b style="font-size:46px;font-weight:800;letter-spacing:-.03em">49</b><b style="font-size:30px;font-weight:800">%</b><span style="font-size:16px;color:var(--text-gray);font-weight:700"> 감소</span></div>
-    </div>
-    <div style="flex:1;min-width:0">
-      <div style="position:relative;height:150px;display:flex;align-items:flex-end;justify-content:space-around;border-bottom:2px solid var(--text-black)">
-        <div style="position:absolute;left:0;right:0;top:0;border-top:1px solid var(--line-soft)"></div>
-        <div style="position:absolute;left:0;right:0;top:33%;border-top:1px solid var(--line-soft)"></div>
-        <div style="position:absolute;left:0;right:0;top:66%;border-top:1px solid var(--line-soft)"></div>
-        <div style="width:32%;height:88%;background:var(--text-gray);border-radius:3px 3px 0 0"></div>
-        <div style="width:32%;height:45%;background:var(--text-black);border-radius:3px 3px 0 0"></div>
-      </div>
-      <div style="display:flex;justify-content:space-around;margin-top:7px;font-size:11px;color:var(--text-gray)"><span style="width:32%;text-align:center">사용 전</span><span style="width:32%;text-align:center">4주 사용 후</span></div>
-    </div>
+  <!-- 레퍼런스 스타일 4지표: 좌 큰 숫자 콜아웃 + 우 사용 전/후 막대그래프 -->
+  <!-- 이마 주름 -->
+  <div class="stat-row">
+    <div class="stat-cap"><span class="stat-pill">이마 주름 측정 %</span>
+      <div class="lead">4주 사용으로<br><strong>이마 주름 개선</strong></div>
+      <div class="big"><b>49</b><b class="pct">%</b><span> 감소</span></div></div>
+    <div class="stat-chart">
+      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:85%;background:var(--text-gray)"></div><div class="bar" style="height:43%;background:var(--text-black)"></div></div>
+      <div class="stat-x"><span>사용 전</span><span>4주 사용 후</span></div></div>
   </div>
-
-  <p style="text-align:center;font-size:13.5px;color:var(--text-dark);margin-top:18px">부위별 변화 — 목 주름 <b>-14%</b> · 눈가 주름 <b>-5%</b> · 웃음선 탄력 <b>+13%</b></p>
+  <!-- 목 주름 -->
+  <div class="stat-row">
+    <div class="stat-cap"><span class="stat-pill">목 주름 측정 %</span>
+      <div class="lead">4주 사용으로<br><strong>목 주름 개선</strong></div>
+      <div class="big"><b>14</b><b class="pct">%</b><span> 감소</span></div></div>
+    <div class="stat-chart">
+      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:85%;background:var(--text-gray)"></div><div class="bar" style="height:73%;background:var(--text-black)"></div></div>
+      <div class="stat-x"><span>사용 전</span><span>4주 사용 후</span></div></div>
+  </div>
+  <!-- 눈가 주름 -->
+  <div class="stat-row">
+    <div class="stat-cap"><span class="stat-pill">눈가 주름 측정 %</span>
+      <div class="lead">4주 사용으로<br><strong>눈가 주름 개선</strong></div>
+      <div class="big"><b>5</b><b class="pct">%</b><span> 감소</span></div></div>
+    <div class="stat-chart">
+      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:85%;background:var(--text-gray)"></div><div class="bar" style="height:81%;background:var(--text-black)"></div></div>
+      <div class="stat-x"><span>사용 전</span><span>4주 사용 후</span></div></div>
+  </div>
+  <!-- 웃음선 탄력 -->
+  <div class="stat-row">
+    <div class="stat-cap"><span class="stat-pill">웃음선 탄력 측정 %</span>
+      <div class="lead">4주 사용으로<br><strong>웃음선 탄력 증가</strong></div>
+      <div class="big"><b>13</b><b class="pct">%</b><span> 증가</span></div></div>
+    <div class="stat-chart">
+      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:60%;background:var(--text-gray)"></div><div class="bar" style="height:74%;background:var(--text-black)"></div></div>
+      <div class="stat-x"><span>사용 전</span><span>4주 사용 후</span></div></div>
+  </div>
   <p class="note" style="text-align:center;margin-top:10px">[다이아몬드 스피큘 5,000샷 4주 사용 인체적용시험] 피부임상연구센터 · 2022.02.24~03.04 · 40-50대 성인 22명 · 개인차 있음</p>
 </section>
 
