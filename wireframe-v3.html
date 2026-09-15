@@ -12,18 +12,19 @@
 <style>
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 :root{
-  --brand:#18A9E3; --brand-deep:#0E7CB8; --brand-ink:#0B5E8E;
-  --text-black:#15303D; --text-dark:#38525E; --text-gray:#6C8794; --text-light:#9FB6C1;
-  --line:#DCEBF3; --line-soft:#EAF4F9;
-  --bg:#FFFFFF; --bg-card:#fff; --bg-soft:#EAF5FB; --bg-tint:#F3FAFD; --bg-dark:#0E7CB8;
-  --ph-bg:#DBEEF8; --ph-text:#6C9DB8;
-  --radius:16px; --radius-sm:12px; --pad-section:52px 18px; --bar-h:64px;
+  --navy:#12284D; --brand:#0055A0; --brand2:#438BC4; --sky:#8CC1E9; --cream:#FFF8E7;
+  --brand-deep:#12284D; --brand-ink:#12284D;
+  --text-black:#12284D; --text-dark:#33465F; --text-gray:#6A7789; --text-light:#9AA6B4;
+  --line:#DCE4EE; --line-soft:#EAEFF5;
+  --bg:#FFFFFF; --bg-card:#fff; --bg-soft:#EAF1F8; --bg-tint:#FFF8E7; --bg-dark:#12284D;
+  --ph-bg:#DCEAF4; --ph-text:#5B7A93;
+  --radius:16px; --radius-sm:12px; --pad-section:52px 18px;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{width:100%;overflow-x:hidden}
 body{font-family:'Pretendard','Apple SD Gothic Neo',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   color:var(--text-black);background:var(--bg);line-height:1.65;word-break:keep-all;letter-spacing:-.01em;
-  max-width:480px;margin:0 auto;padding-bottom:var(--bar-h);box-shadow:0 0 30px rgba(11,94,142,.12)}
+  max-width:480px;margin:0 auto;box-shadow:0 0 30px rgba(11,94,142,.12)}
 section{padding:var(--pad-section);background:var(--bg-card)}
 section:nth-of-type(even){background:var(--bg-tint)}
 .section-title{font-size:24px;font-weight:800;text-align:center;line-height:1.42;margin-bottom:8px;letter-spacing:-.02em}
@@ -43,14 +44,14 @@ strong{font-weight:700}
   gap:4px;padding:14px;font-size:12.5px;font-weight:700;color:var(--brand-ink)}
 .cert span{font-size:11px;font-weight:400;color:var(--text-light)}
 .cert::before{content:"CERT";font-size:10px;letter-spacing:.1em;color:var(--brand);border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin-bottom:4px}
-.dark{background:linear-gradient(135deg,#25B2E8 0%,#0E7CB8 100%);color:#fff;border-radius:var(--radius);padding:22px;box-shadow:0 12px 26px rgba(14,124,184,.22)}
+.dark{background:var(--navy);color:#fff;border-radius:var(--radius);padding:22px;box-shadow:0 12px 26px rgba(14,124,184,.22)}
 .dark .section-subtitle,.dark p{color:rgba(255,255,255,.86)}
 .tag{display:inline-block;font-size:12px;font-weight:700;color:#fff;background:var(--brand);
   border:1px solid var(--brand);border-radius:999px;padding:5px 12px;margin:2px 3px}
 .note{font-size:11px;color:var(--text-light);margin-top:6px}
 .btn{display:block;width:100%;text-align:center;padding:16px;border-radius:999px;
   font-size:16px;font-weight:800;border:none;cursor:pointer;text-decoration:none}
-.btn-primary{background:linear-gradient(135deg,#25B2E8,#0E7CB8);color:#fff;box-shadow:0 8px 20px rgba(14,124,184,.28)}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 8px 20px rgba(14,124,184,.28)}
 .btn-secondary{background:#fff;color:var(--brand-deep);border:1.5px solid var(--brand)}
 ul{list-style:none}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -84,24 +85,24 @@ ul{list-style:none}
 .pill.ghost{background:rgba(255,255,255,.92);color:var(--brand-deep);box-shadow:0 3px 10px rgba(14,124,184,.12)}
 /* 딥블루 웨이브 밴드 */
 .band{padding:0}
-.band .inner{background:linear-gradient(135deg,#1FAAE6 0%,#0B5E8E 100%);color:#fff;text-align:center;padding:36px 18px;position:relative;overflow:hidden}
+.band .inner{background:var(--navy);color:#fff;text-align:center;padding:36px 18px;position:relative;overflow:hidden}
 .band .en{font-size:11.5px;letter-spacing:.26em;opacity:.85}
 .band .en-big{font-family:Georgia,'Times New Roman',serif;font-size:21px;letter-spacing:.12em;margin-top:8px;font-weight:400;line-height:1.4}
 .band svg{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:24px;opacity:.4}
 /* 챗버블 */
 .chat{display:flex;flex-direction:column;gap:14px;margin-top:6px}
 .bubble{display:flex;align-items:flex-end;gap:9px;max-width:88%}
-.bubble .av{width:40px;height:40px;border-radius:50%;flex:0 0 40px;background:radial-gradient(circle at 50% 40%,#EAF6FC,#C4E7F5);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--ph-text);border:1px dashed #A9D3E8;text-align:center;line-height:1.05}
+.bubble .av{width:40px;height:40px;border-radius:50%;flex:0 0 40px;background:var(--sky);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--ph-text);border:1px dashed #A9D3E8;text-align:center;line-height:1.05}
 .bubble .msg{background:#fff;border:1px solid var(--line);border-radius:18px;border-bottom-left-radius:5px;padding:12px 16px;font-size:14px;font-weight:600;color:var(--text-black);box-shadow:0 4px 12px rgba(24,169,227,.08)}
 .bubble.me{align-self:flex-end;flex-direction:row-reverse}
 .bubble.me .msg{background:var(--brand);color:#fff;border-color:var(--brand);border-bottom-left-radius:18px;border-bottom-right-radius:5px}
-.bubble.me .av{background:radial-gradient(circle at 50% 40%,#BFE6F7,#8CCFEC)}
+.bubble.me .av{background:var(--brand2)}
 /* STEP 원형 */
 .steps{display:flex;flex-direction:column}
 .step{text-align:center;padding:14px 0}
 .step+.step{border-top:1px dashed var(--line)}
 .stepno{display:inline-block;background:var(--brand-ink);color:#fff;font-size:12px;font-weight:800;letter-spacing:.08em;padding:6px 18px;border-radius:999px}
-.step .circ{width:134px;height:134px;border-radius:50%;background:radial-gradient(circle at 50% 38%,#EAF7FC,#BFE4F4);margin:16px auto 14px;display:flex;align-items:center;justify-content:center;color:var(--ph-text);font-size:12px;border:1px dashed #A9D3E8;text-align:center;padding:10px}
+.step .circ{width:134px;height:134px;border-radius:50%;background:var(--sky);margin:16px auto 14px;display:flex;align-items:center;justify-content:center;color:var(--ph-text);font-size:12px;border:1px dashed #A9D3E8;text-align:center;padding:10px}
 .step h4{font-size:17px;font-weight:800}
 .step .sd{font-size:13px;color:var(--text-gray);margin-top:6px;line-height:1.6}
 /* 리뷰카드 */
@@ -113,7 +114,7 @@ ul{list-style:none}
 .rev .rbody p{font-size:13.5px;margin-top:6px;line-height:1.6}
 .rev-emph{color:var(--brand-deep);font-weight:800}
 /* 경고 콜아웃 */
-.alert{display:flex;gap:13px;align-items:flex-start;background:linear-gradient(135deg,#EAF6FC,#EEEFF8);border-radius:16px;padding:16px 18px;margin-top:16px}
+.alert{display:flex;gap:13px;align-items:flex-start;background:var(--cream);border-radius:16px;padding:16px 18px;margin-top:16px}
 .alert .ic{width:34px;height:34px;flex:0 0 34px;border-radius:50%;background:var(--brand);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:18px}
 .alert p{font-size:13.5px;color:var(--text-dark);line-height:1.55}
 /* 디바이스 % 배지 */
@@ -125,17 +126,9 @@ ul{list-style:none}
 .delta.up{color:#22B07A}.delta.down{color:#22B07A}
 /* WHY 헤딩 버블 배경 */
 .why-wrap{position:relative;text-align:center}
-.why-wrap .bub{position:absolute;border-radius:50%;background:radial-gradient(circle at 40% 35%,#EAF7FC,#BFE4F4);opacity:.7;z-index:0}
+.why-wrap .bub{position:absolute;border-radius:50%;background:var(--sky);opacity:.7;z-index:0}
 .why-wrap .section-title,.why-wrap p{position:relative;z-index:1}
 .wf-flag{background:var(--bg-soft);border:1px dashed #A9D3E8;color:var(--brand-ink);font-size:11px;text-align:center;padding:6px;letter-spacing:.02em}
-/* 하단 구매바 */
-.buybar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;
-  height:var(--bar-h);background:#fff;border-top:1px solid var(--line);display:flex;align-items:center;
-  gap:10px;padding:0 16px;z-index:50;box-shadow:0 -6px 18px rgba(11,94,142,.08)}
-.buybar .price{flex:1}
-.buybar .price .now{font-size:18px;font-weight:800;color:var(--brand-deep)}
-.buybar .price .was{font-size:12px;color:var(--text-light);text-decoration:line-through;margin-left:4px}
-.buybar .btn{width:auto;flex:0 0 58%;padding:14px}
 </style>
 </head>
 <body>
@@ -144,7 +137,7 @@ ul{list-style:none}
 
 <!-- [1] HERO -->
 <section class="hero" style="padding:0">
-  <div style="position:relative;min-height:820px;background:linear-gradient(165deg,#EAF7FC 0%,#B7E2F3 52%,#8CCFEC 100%);
+  <div style="position:relative;min-height:820px;background:var(--sky);
               display:flex;flex-direction:column;justify-content:space-between;text-align:center;padding:30px 18px 34px">
     <span style="position:absolute;top:48%;left:0;right:0;transform:translateY(-50%);color:var(--ph-text);font-size:12px">[히어로 이미지 — 물빛 배경 위 제품(피사체)이 정중앙에 오도록 배치]</span>
     <div>
@@ -188,28 +181,28 @@ ul{list-style:none}
     <div class="stat-cap"><span class="stat-pill">이마 주름</span>
       <div class="big"><span class="delta down">▼</span><b>49</b><b class="pct">%</b><span>감소</span></div></div>
     <div class="stat-chart">
-      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:85%;background:#AECFE0"></div><div class="bar" style="height:43%;background:var(--brand)"></div></div>
+      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:85%;background:var(--sky)"></div><div class="bar" style="height:43%;background:var(--brand)"></div></div>
       <div class="stat-x"><span>사용 전</span><span>4주 사용 후</span></div></div>
   </div>
   <div class="stat-row">
     <div class="stat-cap"><span class="stat-pill">목 주름</span>
       <div class="big"><span class="delta down">▼</span><b>14</b><b class="pct">%</b><span>감소</span></div></div>
     <div class="stat-chart">
-      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:85%;background:#AECFE0"></div><div class="bar" style="height:73%;background:var(--brand)"></div></div>
+      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:85%;background:var(--sky)"></div><div class="bar" style="height:73%;background:var(--brand)"></div></div>
       <div class="stat-x"><span>사용 전</span><span>4주 사용 후</span></div></div>
   </div>
   <div class="stat-row">
     <div class="stat-cap"><span class="stat-pill">눈가 주름</span>
       <div class="big"><span class="delta down">▼</span><b>5</b><b class="pct">%</b><span>감소</span></div></div>
     <div class="stat-chart">
-      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:85%;background:#AECFE0"></div><div class="bar" style="height:81%;background:var(--brand)"></div></div>
+      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:85%;background:var(--sky)"></div><div class="bar" style="height:81%;background:var(--brand)"></div></div>
       <div class="stat-x"><span>사용 전</span><span>4주 사용 후</span></div></div>
   </div>
   <div class="stat-row">
     <div class="stat-cap"><span class="stat-pill">웃음선 탄력</span>
       <div class="big"><span class="delta up">▲</span><b>13</b><b class="pct">%</b><span>증가</span></div></div>
     <div class="stat-chart">
-      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:60%;background:#AECFE0"></div><div class="bar" style="height:74%;background:var(--brand)"></div></div>
+      <div class="stat-bars"><div class="grid" style="top:0"></div><div class="grid" style="top:33%"></div><div class="grid" style="top:66%"></div><div class="bar" style="height:60%;background:var(--sky)"></div><div class="bar" style="height:74%;background:var(--brand)"></div></div>
       <div class="stat-x"><span>사용 전</span><span>4주 사용 후</span></div></div>
   </div>
   <p class="note" style="text-align:center;margin-top:10px">[다이아몬드 스피큘 5,000샷 4주 사용 인체적용시험] 피부임상연구센터 · 2022.02.24~03.04 · 40-50대 성인 22명 · 개인차 있음</p>
@@ -626,11 +619,6 @@ ul{list-style:none}
 <footer style="padding:24px 20px 32px;text-align:center;color:var(--text-light);font-size:12px;background:#fff">
   선데이투먼데이 다이아몬드 스피큘 · 상세페이지(모바일 · BLITHE UX v3) · 카피/구조 검토용
 </footer>
-
-<div class="buybar">
-  <div class="price"><span class="now">34,000원</span><span class="was">49,000원</span></div>
-  <a class="btn btn-primary" href="#">지금 시작하기</a>
-</div>
 
 </body>
 </html>
